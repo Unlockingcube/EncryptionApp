@@ -30,4 +30,30 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PlainText"
+        android:layout_below="@+id/eTypes"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:text="PlainText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EncryptedText"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:text="EncryptedText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_alignTop="@+id/PlainText"
+        android:layout_toEndOf="@+id/EncryptedText" />
+
 </RelativeLayout>

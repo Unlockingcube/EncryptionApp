@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
     public void EncrptCaesors(String s, int k){
         String plaintext = s;
         ArrayList<Character> List = new ArrayList<Character>(52);
-        ArrayList<Character> Etext = new ArrayList<Character>(s.length());
+        ArrayList<Character> Etext = new ArrayList<Character>(plaintext.length());
         List.add('A');
         List.add('a');
         List.add('B');
@@ -124,7 +124,7 @@ public class MainActivity extends Activity {
 
         for(int i = 0; i<= s.length(); i++ )
         {
-            s.charAt(i);
+            plaintext.charAt(i);
             for(int j = 0; j < List.size(); j++)
             {
                 int shift = k + j;
@@ -132,7 +132,7 @@ public class MainActivity extends Activity {
                 {
                     shift -= 52;
                 }
-                if(List.equals(s.charAt(i)))
+                if(List.equals(plaintext.charAt(i)))
                 {
                   Etext.add(List.get(shift));
 
@@ -140,6 +140,7 @@ public class MainActivity extends Activity {
             }
 
         }
+
 
 
 
