@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+import java.util.ArrayList;
 
+public class MainActivity extends Activity {
+ String type = "Caesors";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,102 @@ public class MainActivity extends Activity {
         String[] items = new String[]{"Caesar Cipher", "DES", "3DES", "AES"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
+
+    }
+    public void EncryptType(String s, int k){
+        switch(type)
+        {
+            case "Caesors": EncrptCaesors(s, k);//calls Caesors encrypt algorithom.
+                break;
+            case "AES": //calls AES encrypt
+                break;
+            case "DES": //calls DES
+                break;
+            case "3DES"://calls 3DES
+                break;
+            default: //calls caesors encrpyt;
+
+        }
+
+    }
+    public void EncrptCaesors(String s, int k){
+        String plaintext = s;
+        ArrayList<Character> List = new ArrayList<Character>(52);
+        ArrayList<Character> Etext = new ArrayList<Character>(s.length());
+        List.add('A');
+        List.add('a');
+        List.add('B');
+        List.add('b');
+        List.add('C');
+        List.add('c');
+        List.add('D');
+        List.add('d');
+        List.add('E');
+        List.add('e');
+        List.add('F');
+        List.add('f');
+        List.add('G');
+        List.add('g');
+        List.add('H');
+        List.add('h');
+        List.add('I');
+        List.add('i');
+        List.add('J');
+        List.add('j');
+        List.add('K');
+        List.add('k');
+        List.add('L');
+        List.add('l');
+        List.add('M');
+        List.add('m');
+        List.add('N');
+        List.add('n');
+        List.add('O');
+        List.add('o');
+        List.add('P');
+        List.add('p');
+        List.add('Q');
+        List.add('q');
+        List.add('R');
+        List.add('r');
+        List.add('S');
+        List.add('s');
+        List.add('T');
+        List.add('t');
+        List.add('W');
+        List.add('w');
+        List.add('X');
+        List.add('x');
+        List.add('Y');
+        List.add('y');
+        List.add('Z');
+        List.add('z');
+
+        for(int i = 0; i<= s.length(); i++ )
+        {
+            s.charAt(i);
+            for(int j = 0; j < List.size(); j++)
+            {
+                int shift = k + j;
+                if(shift > 52)
+                {
+                    shift -= 52;
+                }
+                if(List.equals(s.charAt(i)))
+                {
+                  Etext.add(List.get(shift));
+
+                }
+            }
+
+        }
+
+
+
+
+
+
+
 
     }
 }
