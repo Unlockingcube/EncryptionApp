@@ -133,7 +133,7 @@ public class MainActivity extends Activity {
             for(int j = 0; j < List.size(); j++)
             {
                 int shift = k + j;
-                if(shift > 52)
+                while(shift > 52)
                 {
                     shift -= 52;
                 }
