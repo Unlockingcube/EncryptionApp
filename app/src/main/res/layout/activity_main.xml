@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/password"
         android:layout_alignTop="@+id/PlainText"
         android:layout_toEndOf="@+id/EncryptedText" />
 

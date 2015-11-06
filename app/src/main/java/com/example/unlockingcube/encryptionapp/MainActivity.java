@@ -53,10 +53,10 @@ public class MainActivity extends Activity {
         dropdown.setAdapter(adapter);
 
     }
-    public void EncryptType(String s, int k){
+    public void EncryptType(){
         switch(type)
         {
-            case "Caesors": EncrptCaesors(s, k);//calls Caesors encrypt algorithom.
+            case "Caesors": EncrptCaesors();//calls Caesors encrypt algorithom.
                 break;
             case "AES": //calls AES encrypt
                 break;
@@ -69,8 +69,13 @@ public class MainActivity extends Activity {
         }
 
     }
-    public void EncrptCaesors(String s, int k){
-        String plaintext = s;
+    public void EncrptCaesors(){
+        TextView ptextview = (TextView)findViewById(R.id.PlainText);
+        String plaintext ="";
+        plaintext = ptextview.getText().toString();
+        String encryptedText ="";
+        TextView PwordText = (TextView)findViewById(R.id.password);
+        int  k = Integer.parseInt(PwordText.getText().toString());
         ArrayList<Character> List = new ArrayList<Character>(52);
         ArrayList<Character> Etext = new ArrayList<Character>(plaintext.length());
         List.add('A');
@@ -122,7 +127,7 @@ public class MainActivity extends Activity {
         List.add('Z');
         List.add('z');
 
-        for(int i = 0; i<= s.length(); i++ )
+        for(int i = 0; i<= plaintext.length(); i++ )
         {
             plaintext.charAt(i);
             for(int j = 0; j < List.size(); j++)
@@ -140,14 +145,12 @@ public class MainActivity extends Activity {
             }
 
         }
-
-
-
-
-
-
-
-
+        for(int i =0; i < Etext.size(); i++)
+        {
+          encryptedText += Etext.get(i);
+        }
+        TextView Etextview = (TextView)findViewById(R.id.EncryptedText);
+        Etextview.setText(encryptedText);
 
     }
 }
