@@ -3,11 +3,14 @@ package com.example.unlockingcube.encryptionapp;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Button;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadSpinners(this);
+
+        Button decryptButton = (Button)findViewById(R.id.ebutton);
+
+        decryptButton.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                    EncrptCaesors();
+                    }
+                }
+        );
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,7 +70,8 @@ public class MainActivity extends Activity {
     public void EncryptType(){
         switch(type)
         {
-            case "Caesors": EncrptCaesors();//calls Caesors encrypt algorithom.
+            case "Caesors":
+                EncrptCaesors();//calls Caesors encrypt algorithom. - this is not implemented right now
                 break;
             case "AES": //calls AES encrypt
                 break;
@@ -70,10 +85,12 @@ public class MainActivity extends Activity {
 
     }
     public void EncrptCaesors(){
+
         TextView ptextview = (TextView)findViewById(R.id.PlainText);
         String plaintext ="";
         plaintext = ptextview.getText().toString();
         String encryptedText ="";
+        //This needs to be checked for null pointers
         TextView PwordText = (TextView)findViewById(R.id.password);
         int  k = Integer.parseInt(PwordText.getText().toString());
         ArrayList<Character> List = new ArrayList<Character>(52);
@@ -127,7 +144,7 @@ public class MainActivity extends Activity {
         List.add('Z');
         List.add('z');
 
-        for(int i = 0; i<= plaintext.length(); i++ )
+        for(int i = 0; i< plaintext.length(); i++ )
         {
             plaintext.charAt(i);
             for(int j = 0; j < List.size(); j++)
@@ -150,7 +167,10 @@ public class MainActivity extends Activity {
           encryptedText += Etext.get(i);
         }
         TextView Etextview = (TextView)findViewById(R.id.EncryptedText);
-        Etextview.setText(encryptedText);
+        //fails somewhere in the shifting process and outputs a blank string
+//        Etextview.setText(encryptedText);
+
+        Etextview.setText("SOMETHING");
 
     }
 }
