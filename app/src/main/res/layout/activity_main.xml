@@ -44,9 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/EncryptedText"
-        android:layout_above="@+id/Dbutton"
-        android:layout_centerHorizontal="true"
-        android:text="EncryptedText" />
+        android:text="EncryptedText"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -56,5 +56,13 @@
         android:id="@+id/password"
         android:layout_alignTop="@+id/PlainText"
         android:layout_toEndOf="@+id/EncryptedText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DecryptedText"
+        android:text="DecryptedText"
+        android:layout_below="@+id/EncryptedText"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
